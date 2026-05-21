@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # https://www.robotstxt.org/robotstxt.html
 >>>>>>> cc35f761ecb2786c3457fe4b860f216797ebed67
+=======
+>>>>>>> ced0e80c278d44f68026d04d4a4418cac6514c39
 User-agent: *
 Disallow:

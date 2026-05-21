@@ -9,13 +9,18 @@
 
         body{
             margin:0;
-            font-family: Arial, sans-serif;
+            font-family:Arial, sans-serif;
+            background:url('/images/edu.png');
+            background-size:cover;
+            background-position:center;
+            min-height:100vh;
         }
 
         /* NAVBAR */
         .navbar{
             width:100%;
             height:80px;
+            background:white;
             display:flex;
             justify-content:space-between;
             align-items:center;
@@ -24,9 +29,9 @@
         }
 
         .logo{
-            font-size:30px;
+            font-size:28px;
             font-weight:bold;
-            color:white;
+            color:#111827;
         }
 
         .menu{
@@ -36,7 +41,7 @@
 
         .menu a{
             text-decoration:none;
-            color:white;
+            color:#111827;
             font-weight:500;
         }
 
@@ -52,52 +57,56 @@
 
         .auth a{
             text-decoration:none;
-            color:white;
+            color:#111827;
         }
 
         .signup{
             background:#7ad97a;
-            padding:10px 20px;
-            border-radius:20px;
-            color:white;
+            padding:12px 22px;
+            border-radius:15px;
+            color:white !important;
         }
 
         .menu-icon{
             cursor:pointer;
-            font-size:25px;
-            color:white;
+            font-size:28px;
+            color:#111827;
         }
 
         /* HERO */
         .hero{
             text-align:center;
-            margin-top:120px;
-            color:white;
+            margin-top:140px;
         }
 
         .hero h1{
-            font-size:70px;
+            font-size:85px;
+            color:#0f172a;
             margin-bottom:10px;
+            font-weight:bold;
         }
 
         .subtitle{
-            font-size:25px;
+            font-size:30px;
+            color:#374151;
         }
 
         .desc{
             margin-top:15px;
-            font-size:18px;
+            font-size:20px;
+            color:#4b5563;
         }
 
         .btn-login{
             display:inline-block;
-            margin-top:30px;
+            margin-top:35px;
             background:#7ad97a;
             color:white;
-            padding:15px 35px;
-            border-radius:25px;
+            padding:15px 45px;
+            border-radius:18px;
             text-decoration:none;
             font-weight:bold;
+            font-size:20px;
         }
 
         /* SECTION */
@@ -128,7 +137,7 @@
             left:-300px;
             width:260px;
             height:100%;
-            background:rgba(0,0,0,0.5);
+            background:rgba(0,0,0,0.7);
             backdrop-filter:blur(10px);
             padding:20px;
             transition:0.3s;
@@ -164,7 +173,7 @@
     </style>
 </head>
 
-<body class="bg">
+<body>
 
 <!-- NAVBAR -->
 <div class="navbar">
@@ -213,7 +222,6 @@
 
         @endauth
 
-        <!-- ICON ☰ -->
         <span onclick="toggleSidebar()" class="menu-icon">
             ☰
         </span>
@@ -288,61 +296,18 @@
 
         @auth
 
-            <li>
-                <a href="/dashboard">
-                    Dashboard
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Edu-Selection
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    Simulasi Tabungan
-                </a>
-            </li>
-
-            <li>
-                <a href="/assistant">
-                    Digital Assistance
-                </a>
-            </li>
-
-            <li>
-                <a href="/assistant">
-                    Penukaran Reward  
-                </a>
-            </li>
-
-            <a href="/assistant">
-                   Riwayat Reward 
-                </a>
-            </li>
-
-
-            <li>
-                <a href="/logout">
-                    Logout
-                </a>
-            </li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="#">Edu-Selection</a></li>
+            <li><a href="#">Simulasi Tabungan</a></li>
+            <li><a href="/assistant">Digital Assistance</a></li>
+            <li><a href="#">Penukaran Reward</a></li>
+            <li><a href="#">Riwayat Reward</a></li>
+            <li><a href="/logout">Logout</a></li>
 
         @else
 
-            <li>
-                <a href="/login">
-                    Login
-                </a>
-            </li>
-
-            <li>
-                <a href="/signup">
-                    Sign Up
-                </a>
-            </li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
 
         @endauth
 
@@ -350,7 +315,6 @@
 
 </div>
 
-<!-- SCRIPT -->
 <script>
 
 function toggleSidebar() {
