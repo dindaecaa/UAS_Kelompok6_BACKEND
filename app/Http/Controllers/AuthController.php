@@ -3,40 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function showLogin() {
-        return view('login');
-    }
-
-    public function login(Request $request) {
-        $data = $request->only('email', 'password');
-
-        if (Auth::attempt($data)) {
-            return redirect('/dashboard');
-        }
-
-        return back()->with('error', 'Email atau password salah');
-    }
-
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $user = User::create([
-            'name' => $request->name . ' ' . $request->lastname,
+            'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => bcrypt($request->password)
         ]);
 
-        Auth::login($user);
-
-        return redirect('/dashboard');
+        return response()->json($user);
     }
 
-    public function logout() {
-        Auth::logout();
-        return redirect('/');
+    public function login(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json(['message' => 'Login gagal'], 401);
+        }
+
+        return response()->json($user);
     }
 }
